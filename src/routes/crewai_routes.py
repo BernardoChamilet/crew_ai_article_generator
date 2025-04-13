@@ -5,5 +5,5 @@ crewai_bp = Blueprint('crewai', __name__)
 
 # Rota gerar artigo
 @crewai_bp.route("/generate_article", methods=('POST',))
-def gerarArtigo():
-    return controllers.gerarArtigo()
+def generateArticle():
+    return controllers.generateArticle()
