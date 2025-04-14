@@ -3,7 +3,7 @@ from src.crew.agents.writers import redator
 
 task_redator = Task(
     description=(
-        "Com base nas informações fornecidas pelo agente pesquisador, escreva um artigo completo sobre o tema solicitado. "
+        "Com base nas informações fornecidas pelo agente pesquisador, escreva um artigo completo sobre o tema '{subject}'. "
         "O artigo deve ser informativo, bem estruturado e adequado para leitura pública. "
         "Não invente fatos. Apenas organize e redija com clareza o conteúdo entregue."
     ),
@@ -19,5 +19,6 @@ task_redator = Task(
         "  \"referencias\": [\"https://pt.wikipedia.org/wiki/Exemplo\"]\n"
         "}"
     ),
-    agent=redator
+    agent=redator,
+    input_variables=["subject"]
 )

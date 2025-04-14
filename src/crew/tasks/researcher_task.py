@@ -3,7 +3,7 @@ from src.crew.agents.researcher import pesquisador
 
 task_pesquisador = Task(
     description=(
-        "Pesquise o tema fornecido utilizando sua ferramenta de consulta à Wikipedia. "
+        "Pesquise sobre o tema '{subject}' utilizando sua ferramenta de consulta à Wikipedia. "
         "Seu objetivo é coletar informações confiáveis e relevantes que sirvam de base para a redação de um artigo. "
         "Apresente os dados de forma clara, estruturada e objetiva."
     ),
@@ -11,5 +11,6 @@ task_pesquisador = Task(
         "Um resumo informativo com os principais pontos sobre o tema fornecido. "
         "Evite copiar diretamente trechos longos da fonte. Prefira uma síntese bem escrita, com coesão e clareza."
     ),
-    agent=pesquisador
+    agent=pesquisador,
+    input_variables=["subject"]
 )
