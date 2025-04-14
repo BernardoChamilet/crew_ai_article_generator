@@ -1,7 +1,5 @@
 from crewai import Agent
-from src.crew.tools.wikipedia_tool import WikipediaTool 
-from src.crew.llm.gemini import llm_gemini
-from src.crew.tools.wikipedia_tool import wikipedia_tool
+from src.crew.llm.groq import llm_groq
 
 # Criando o agente
 redator = Agent(
@@ -16,6 +14,6 @@ redator = Agent(
         "É conhecido por sua clareza e estilo fluido."
     ),
     tools=[],
-    llm=llm_gemini,
+    llm=llm_groq,
     verbose=True
 )

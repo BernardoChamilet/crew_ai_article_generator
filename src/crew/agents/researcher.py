@@ -1,7 +1,6 @@
 from crewai import Agent
 from src.crew.tools.wikipedia_tool import WikipediaTool 
-from src.crew.llm.gemini import llm_gemini
-from src.crew.tools.wikipedia_tool import wikipedia_tool
+from src.crew.llm.groq import llm_groq
 
 # Criando o agente pesquisador
 pesquisador = Agent(
@@ -12,7 +11,7 @@ pesquisador = Agent(
         "Sua especialidade encontrar e reunir dados relevantes, precisos e objetivos sobre um tema. "
         "É conhecido por sua habilidade de encontrar as informações mais relevantes e as apresentar de maneira clara e concisa."
     ),
-    tools=[wikipedia_tool],
-    llm=llm_gemini,
+    tools=[WikipediaTool()],
+    llm=llm_groq,
     verbose=True
 )
