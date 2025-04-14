@@ -22,3 +22,6 @@ class WikipediaTool(BaseTool):
                 return f"Erro ao consultar a Wikipedia: {response.status_code}"
         except Exception as e:
             return f"Ocorreu um erro inesperado ao consultar a Wikipedia: {str(e)}"
+        
+# Instanciando a Wikipedia Tool
+wikipedia_tool = WikipediaTool()
