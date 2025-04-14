@@ -13,3 +13,5 @@ secret_key = os.getenv('SECRET_KEY')
 debug = bool(os.getenv('DEBUG'))
 
 port = int(os.getenv('PORT'))
+
+groq_api_key = os.getenv('GROQ_API_KEY')
