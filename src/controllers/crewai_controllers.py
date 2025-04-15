@@ -15,14 +15,17 @@ def generateArticle():
         return jsonify({"erro": e.errors()}), 400
     # Executando a crew 
     try:
-        artigo = artigo_crew.kickoff(inputs={"subject": subject.subject})
+        crew_output = artigo_crew.kickoff(inputs={"subject": subject.subject})
     except Exception as e:
         return jsonify({"erro": f"Erro ao gerar o artigo: {str(e)}"}), 500
     # Validando output da crew
     try:
-        resultado = Article(**artigo.result)
-        resultado_dict = resultado.model_dump()
+        output_dict = {
+            "article": crew_output.tasks_output[-1].raw
+        }
+        response = Article(**output_dict)
+        response_dict = response.model_dump()
     except ValidationError as e:
         return jsonify({"erro": e.errors()}), 400
     # 200: sucesso
-    return jsonify(resultado_dict), 200
+    return jsonify(response_dict), 200
